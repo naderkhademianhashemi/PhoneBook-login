@@ -1,0 +1,35 @@
+﻿
+@using Resource
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm(EnglishResourse.LogOffAction,
+        EnglishResourse.AccController,
+        FormMethod.Post, new { id = "logoutForm" }))
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a id="linkUser" href="/" title="سلام"></a>
+            </li>
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()">
+                    @PhoneResource.LogOff
+                </a>
+            </li>
+
+        </ul>
+        
+    }
+
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+
+        <li>
+            @Html.ActionLink(PhoneResource.Login,
+           EnglishResourse.LoginAction,
+           EnglishResourse.LoginController
+          )
+        </li>
+    </ul>
+}
